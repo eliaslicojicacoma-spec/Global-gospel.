@@ -1,0 +1,33 @@
+import React from 'react';
+import { Book, Download } from 'lucide-react';
+
+const Library: React.FC = () => {
+  const books = [
+    { title: "Manual da Igreja", desc: "Orientações e procedimentos oficiais." },
+    { title: "Nisto Cremos", desc: "As 28 crenças fundamentais explicadas." },
+    { title: "Lição da Escola Sabatina", desc: "Guia de estudo diário da Bíblia." }
+  ];
+
+  return (
+    <section id="biblioteca" className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-4xl font-serif text-center mb-12 text-[#1a2a6c]">Biblioteca de Estudos</h2>
+        <div className="grid md:grid-row-3 gap-8">
+          {books.map((book, index) => (
+            <div key={index} className="bg-white p-6 rounded-xl shadow-md flex justify-between items-center hover:shadow-xl transition-shadow border-l-4 border-[#b21f1f]">
+              <div>
+                <h3 className="text-xl font-bold text-[#1a2a6c]">{book.title}</h3>
+                <p className="text-gray-600">{book.desc}</p>
+              </div>
+              <button className="bg-[#1a2a6c] text-white p-3 rounded-full hover:bg-[#b21f1f] transition-colors">
+                <Download size={20} />
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Library;
